@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rada Tech Corp - Login</title>
+    <link rel="stylesheet" href="website1.css"
+</head>
+<body>
+    <div class="login-container" id="loginPage">
+        <div class="login-inner">
+            <h2>Rada Tech Corp</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="error-message" id="errorMessage">Invalid username or password</div>
+            </form>
+        </div>
+    </div>
+  
+    <div class="content-container" id="contentPage">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+        
+        <div class="content-header">
+            <h1>Welcome to Rada Tech Corp</h1>
+            <p>Empowering Innovation Through Technology and Faith</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Personal Reflection</h3>
+                <p>A space dedicated to personal growth and introspection. We believe in the power of self-reflection as a catalyst for continuous improvement and meaningful change. Share your journey, thoughts, and experiences as we grow together in our professional and personal lives.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Community Service / Advocacy</h3>
+                <p>Our commitment to making a positive impact extends beyond technology. Through community service and advocacy initiatives, we strive to uplift communities, support those in need, and create lasting change. Join us in our mission to serve others and make a difference.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Inspirational Portfolio</h3>
+                <p>Discover stories of innovation, perseverance, and success. Our portfolio showcases projects that inspire and motivate. From breakthrough technologies to transformative solutions, explore the work that drives us forward and shapes the future.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Educational / Informational</h3>
+                <p>Knowledge is the foundation of progress. Access educational resources, tutorials, and informational content designed to empower you with the skills and understanding needed in today's rapidly evolving technological landscape. Learn, grow, and excel with us.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Faith and Technology Integration</h3>
+                <p>We believe in the harmonious integration of faith and technology. Exploring how spiritual values guide our technological innovations, we create solutions that honor our beliefs while advancing human potential. Discover how purpose-driven technology can transform lives.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 Rada Tech Corp. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginPage = document.getElementById('loginPage');
+        const contentPage = document.getElementById('contentPage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        const VALID_USERNAME = 'Rada';
+        const VALID_PASSWORD = 'radatechcorp';
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                loginPage.style.display = 'none';
+                contentPage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+            }
+        });
+
+        function logout() {
+            loginPage.style.display = 'flex';
+            contentPage.style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            errorMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
